@@ -20,10 +20,10 @@ function onFormSubmit(e) {
 
     createPromise(i, delayV)
       .then(({ position, delay }) => {
-        Notiflix.Notify.success(`&#x2705 Sol lucet omnibus ${position + 1} in ${delay}ms`);
+        Notiflix.Notify.success(`&#x2705 Fulfilled promise ${position + 1} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
-        Notiflix.Notify.failure(`&#10060 Qui timide rogat docet negare ${position + 1} in ${delay}ms`);
+        Notiflix.Notify.failure(`&#10060 Rejected promise ${position + 1} in ${delay}ms`);
       });
     delayV += stepV;
   }

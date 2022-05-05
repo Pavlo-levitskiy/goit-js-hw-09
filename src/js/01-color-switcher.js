@@ -3,26 +3,26 @@ const refs = {
   finish: document.querySelector('button[data-stop]'),
 };
 
-refs.start.addEventListener('click', onStartClick);
-refs.finish.addEventListener('click', onFinishClick);
-
-const addAttFinish = refs.finish.setAttribute('disabled', 'disabled');
-
 let timerId = null;
 
 function onStartClick(e) {
   refs.finish.removeAttribute('disabled');
-  const addAttStart = refs.start.setAttribute('disabled', 'disabled');
+  refs.start.disabled = true;
   startClick();
   timerId = setInterval(startClick, 2000);
 }
 
-onFinishClick();
+refs.start.addEventListener('click', onStartClick);
+
+
 function onFinishClick(e) {
   refs.start.removeAttribute('disabled');
-  refs.finish.setAttribute('disabled', 'disabled');
+  refs.finish.disabled = true;
   clearInterval(timerId);
 }
+
+refs.finish.addEventListener('click', onFinishClick);
+
 
 function startClick() {
   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
