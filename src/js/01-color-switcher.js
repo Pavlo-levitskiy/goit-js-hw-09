@@ -6,7 +6,7 @@ const refs = {
 let timerId = null;
 
 function onStartClick(e) {
-  refs.finish.removeAttribute('disabled');
+  refs.finish.disabled = false;
   refs.start.disabled = true;
   startClick();
   timerId = setInterval(startClick, 2000);
@@ -16,7 +16,7 @@ refs.start.addEventListener('click', onStartClick);
 
 
 function onFinishClick(e) {
-  refs.start.removeAttribute('disabled');
+  refs.start.disabled = false;;
   refs.finish.disabled = true;
   clearInterval(timerId);
 }
